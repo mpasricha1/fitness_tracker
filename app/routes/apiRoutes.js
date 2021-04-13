@@ -17,7 +17,7 @@ module.exports = (app) => {
 		try{
 			let dbExercise = await db.Exercise.create({type: req.body.type, name: req.body.name, 
 								weight: req.body.weight, sets: req.body.sets, 
-								reps: req.body.reps,duration: req.body.duration
+								reps: req.body.reps, duration: req.body.duration, distance: req.body.distance
 			});
 			
 			await db.Workout.findOneAndUpdate({_id: req.params.id}, {$push: {exercises: dbExercise["_id"]}}, {new: true})
