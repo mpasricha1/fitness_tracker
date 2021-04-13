@@ -12,7 +12,7 @@ const ExerciseSchema = new Schema({
 	}, 
 	weight: {
 		type: Number,
-		min: [0, "Weight cannot be negative"] 
+		min: [0, "Weight cannot be negative"] ,
 		default: 0, 
 
 	},
@@ -36,17 +36,10 @@ const ExerciseSchema = new Schema({
 		type: Number, 
 		min: [0, "Distance cannot be negative"], 
 		default: 0
-	}, 
-	isCardio: {
-		type: Boolean, 
-		default: false
-	}
+	} 
+	
 }); 
 
-ExerciseSchema.methods.isCardio = () => {
-	this.isCardio = true; 
-	return this.isCardio; 
-}
 
 const Exercise = mongoose.model("Exercise", ExerciseSchema); 
 
