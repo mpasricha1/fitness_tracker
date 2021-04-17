@@ -18,7 +18,7 @@ app.use(express.static('app/public'));
 require("./app/routes/apiRoutes.js")(app); 
 require("./app/routes/htmlRoutes.js")(app);
 
-mongoose.connect(process.env.MONGODB,  {
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB,  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
