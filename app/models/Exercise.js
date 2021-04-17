@@ -36,7 +36,7 @@ const ExerciseSchema = new Schema({
 		type: Number, 
 		min: [0, "Distance cannot be negative"], 
 		default: 0
-	} 
+	}
 	
 }); 
 

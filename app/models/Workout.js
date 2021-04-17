@@ -9,8 +9,41 @@ const WorkoutSchema = new Schema({
 	}, 
 	exercises: [
 		{
-			type: Schema.Types.ObjectId, 
-			ref: "Exercise"
+			name: {
+				type: String, 
+				trim: true		
+			}, 
+			type: {
+				type: String, 
+				trim: true
+			}, 
+			weight: {
+				type: Number,
+				min: [0, "Weight cannot be negative"] ,
+				default: 0, 
+
+			},
+			sets: {
+				type: Number, 
+				min: [0, "Sets cannot be negative"], 
+				default: 0
+			}, 
+			reps: {
+				type: Number, 
+				min: [0, "Reps cannot be negative"], 
+				default: 0
+			}, 
+			duration: {
+				type: Number, 
+				min: [0, "Duration cannot be negative"], 
+				default: 0
+
+			}, 
+			distance: {
+				type: Number, 
+				min: [0, "Distance cannot be negative"], 
+				default: 0
+			}
 		}
 	]
 }); 
