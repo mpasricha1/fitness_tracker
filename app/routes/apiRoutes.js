@@ -32,23 +32,21 @@ module.exports = (app) => {
 		}catch(err) {
 			res.status(500)
 		}
-		
-
 	})	
 }
 
 const getAndSumDuration = async () =>{
 	try{
-			let data = await db.Workout.aggregate([
-				{
-					$addFields: {
-						totalDuration: {$sum: "$exercises.duration"}
-					}
+		let data = await db.Workout.aggregate([
+			{
+				$addFields: {
+					totalDuration: {$sum: "$exercises.duration"}
 				}
-			])
-			console.log(data)
-			return (data)
-		}catch(err){
-			console.log(err); 
-		}		
+			}
+		])
+		console.log(data)
+		return (data)
+	}catch(err){
+		console.log(err); 
+	}		
 }
